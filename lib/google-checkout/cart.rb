@@ -194,8 +194,8 @@ module GoogleCheckout
                     xml.tag!('description') {
                       xml.text! item[:description].to_s
                     }
-                    xml.tag('key', item[:key].to_s)
-                    xml.tag('url', item[:url].to_s)
+                    xml.tag!('key', item[:key].to_s)
+                    xml.tag!('url', item[:url].to_s)
                   }
                 end
               }
