@@ -187,6 +187,17 @@ module GoogleCheckout
                 xml.quantity {
                   xml.text! item[:quantity].to_s
                 }
+
+                if item.key?(:key)
+                  xml.tag!('digital-content') {
+                    xml.tag!('display-diposition', "OPTIMISTIC") 
+                    xml.tag!('description') {
+                      xml.text! item[:description].to_s
+                    }
+                    xml.tag('key', item[:key].to_s)
+                    xml.tag('url', item[:url].to_s)
+                  }
+                end
               }
             }
           }
