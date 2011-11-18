@@ -190,7 +190,7 @@ module GoogleCheckout
 
                 if item.key?(:key)
                   xml.tag!('digital-content') {
-                    xml.tag!('display-diposition', "OPTIMISTIC") 
+                    xml.tag!('display-disposition', "OPTIMISTIC") 
                     xml.tag!('description') {
                       xml.text! item[:description].to_s
                     }
