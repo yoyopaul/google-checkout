@@ -200,15 +200,13 @@ module GoogleCheckout
                     xml.tag!('url', item[:url].to_s)
                   }
                 end
-                
+                logger.debug("item[:is_digital] = #{item[:is_digital]}")
                 #more platform-agnostic stuff
                 if item.key?(:is_digital)
                   #required digital-content tags
                   xml.tag!('digital-content') {
                     xml.tag!('display-disposition', "OPTIMISTIC") 
                     xml.tag!('description') {
-                      
-                      #is there a different description supplied for download instructions?
                       if item.key?(:download_description)
                         xml.text! item[:download_description].to_s
                       else
