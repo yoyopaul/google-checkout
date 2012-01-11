@@ -188,22 +188,8 @@ module GoogleCheckout
                   xml.text! item[:quantity].to_s
                 }
 
-                # could do this nicer by checking for digital content, rather than
-                # just this one variant that we are interested in
-                #if item.key?(:key)
-                #  xml.tag!('digital-content') {
-                #    xml.tag!('display-disposition', "OPTIMISTIC") 
-                #    xml.tag!('description') {
-                #      xml.text! item[:description].to_s
-                #    }
-                #    xml.tag!('key', item[:key].to_s)
-                #    xml.tag!('url', item[:url].to_s)
-                #  }
-                #end
-                
-                #
+                #handle digital content purchases
                 if item.key?(:is_digital)
-                  #required digital-content tags
                   xml.tag!('digital-content') {
                     xml.tag!('display-disposition', "OPTIMISTIC") 
                     xml.tag!('description') {
