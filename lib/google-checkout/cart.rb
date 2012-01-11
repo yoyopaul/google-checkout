@@ -202,7 +202,7 @@ module GoogleCheckout
                 #end
                 
                 logger.debug("item[:is_digital] = #{item[:is_digital]}")
-                #more platform-agnostic stuff
+                #
                 if item.key?(:is_digital)
                   #required digital-content tags
                   xml.tag!('digital-content') {
