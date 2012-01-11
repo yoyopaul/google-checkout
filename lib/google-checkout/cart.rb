@@ -200,6 +200,31 @@ module GoogleCheckout
                     xml.tag!('url', item[:url].to_s)
                   }
                 end
+                
+                #more platform-agnostic stuff
+                if item.key?(:is_digital)
+                  #required digital-content tags
+                  xml.tag!('digital-content') {
+                    xml.tag!('display-disposition', "OPTIMISTIC") 
+                    xml.tag!('description') {
+                      
+                      #is there a different description supplied for download instructions?
+                      if item.key?(:download_description)
+                        xml.text! item[:download_description].to_s
+                      else
+                        xml.text! item[:description].to_s
+                      end
+                    }
+                    #display the license key, if one is provided
+                    if item.key?(:key)
+                      xml.tag!('key', item[:key].to_s)
+                    end
+                    #display the download url, if provided
+                    if item.key?(:url)
+                      xml.tag!('url', item[:url].to_s)
+                    end
+                  }
+                end
               }
             }
           }
