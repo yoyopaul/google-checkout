@@ -201,7 +201,6 @@ module GoogleCheckout
                 #  }
                 #end
                 
-                logger.debug("item[:is_digital] = #{item[:is_digital]}")
                 #
                 if item.key?(:is_digital)
                   #required digital-content tags
