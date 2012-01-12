@@ -199,11 +199,11 @@ module GoogleCheckout
                         xml.text! item[:description].to_s
                       end
                     }
-                    #display the license key, if one is provided
+                    
                     if item.key?(:key)
                       xml.tag!('key', item[:key].to_s)
                     end
-                    #display the download url, if provided
+                    
                     if item.key?(:url)
                       xml.tag!('url', item[:url].to_s)
                     end
